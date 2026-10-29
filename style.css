@@ -1,0 +1,336 @@
+/*shrink overall inner contents to fit margin and padding; prevents overflow */
+* {
+    box-sizing: border-box;
+}
+/* font declaration */
+@font-face {
+    font-family: "New";
+    src: url("Fonts/new-romantics.TTF") format("truetype")
+}
+@font-face {
+    font-family: "Pretty";
+    src: url("Fonts/pretty-on-the-inside.ttf") format("truetype")
+}
+
+/*for header and .mother*/
+body { 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* to counter flex's default direction */
+}
+/* header */
+/* for nav & h1 */
+header { /* height determined by contents */
+    display: flex;
+    align-items: center;
+    background-color: black;
+    border: 3px solid #FFBDC6;
+}
+header h1 {
+    font-family: "New", serif;
+    color: #FFBDC6;
+    font-size: 30px;
+    margin: 0;
+    padding: 5px;
+    margin-left: 12px;
+    margin-top: 5px;
+}
+nav {
+    display: flex; /* has it's own grouped elements */
+    gap: 10px;
+    margin-left: auto;
+    padding: 5px;
+    padding-bottom: 0;
+    margin-right: 10px;
+    font-family: "New", serif;
+    color: #FFBDC6;
+    font-size: 20px;
+}
+nav a {
+    text-decoration: none;
+    color: inherit; /* inherit color of parent element which is nav */
+}
+a:hover { /*pseudo class*/
+    color: white;
+}
+/* .mother */
+/* for aside & .main */
+.mother {
+    display: flex;
+    flex: 1; /* takes all remaining vertical space */
+}
+/* aside */
+/* for .to-do, hr, & .notes */
+aside {
+    display: flex; /* for .mother and its own grouped elements */
+    flex: 1;
+    flex-direction: column; 
+    padding: 5px;
+    background-color: black;
+}
+/* .to-do */
+/* for h3 & .checklist */
+.to-do {
+    display: flex; /* for h3 & .checklist */
+    flex-direction: column; 
+    flex: 6;
+    padding: 0 5px; /* top & bottom then left & right */
+}
+.to-do h3 {
+    text-align: center;
+    font-family: "Pretty", serif;
+    color: #FFBDC6;
+    font-size: 45px;
+    margin: 0;
+    padding-top: 10px;
+}
+/* .checklist */
+/* for li, .check, & .text */
+.checklist {
+    list-style: none; /* removes default bullet & numbering; allow edits */
+    padding-left: 0;
+    margin: 0;
+    display: flex; /* for lists */
+    flex-direction: column;
+    gap: 10px;
+}
+.checklist li {
+    display: flex;
+    gap: 5px;
+}
+.check {
+    appearance: none; /* removes default design which is a square */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* circle */
+    background-color: white;
+    cursor: pointer;
+}
+.check:checked { /* pseudo class */
+    background-color: #FFBDC6;
+}
+.check:checked::after { /*pseudo element */
+    content: "✓";
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text {
+    flex: 1;
+    overflow-wrap: anywhere;
+    background-color: white;
+    padding: 2.5px;
+}
+/* hr */
+aside hr {  
+    margin: 5px 0;     
+    background-color: #FFBDC6;
+    height: 3px;
+    border: none;
+}
+/* .notes */
+/* for h3 & .note-box */
+.notes {
+    display: flex; /* for h3 & .note-box */
+    flex-direction: column;
+    flex: 4;
+    padding: 0 5px;
+}
+.notes h3 {
+    text-align: center;
+    font-family: "Pretty", serif;
+    color: #FFBDC6;
+    font-size: 45px;
+    margin: 0;
+    padding-top: 10px;
+}
+.note-box {
+    margin-top: 8px;
+    height: 100%;
+    background-color: white;
+    padding: 2.5px;
+    overflow-wrap: anywhere;
+    margin-bottom: 5px;
+}
+/* .main; can be removed */
+/* for .container */
+main {
+    flex: 9;
+    overflow: hidden; /* prevent scrollbars inside iframe */
+}
+/* .container */
+/* for .month and .calendar */
+.container-jan {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('Images/1fruit.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-feb {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url('Images/2mango.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-mar {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/3marsh.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-apr {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: url('Images/4rice.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-may {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/5return.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-jun {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: url('Images/6life.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-jul {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/7arch.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-aug {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/8cockfighting.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-sep {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/9carabao.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-oct {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: url('Images/10fiesta.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-nov {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1)), url('Images/11man.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.container-dec {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+    background-image: url('Images/12sea.jpeg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* .month */
+/* for h1 & h3 */
+.month {
+    position: relative; /* treat this as positioning reference for absolute children */
+    flex: 1;
+    height: 100%;
+    padding: 10px;
+}
+.month h1 {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+    margin: 0;
+    line-height: 1; /* lessens default headings line heights */
+    font-size: 80px;
+    font-family: "New", serif;
+    color: black;
+}
+.month h3 {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    margin: 0;
+    line-height: 1;         
+    font-size: 30px;
+    font-family: "New", serif;
+    color: black;
+}
+/* .calendar (table) */
+.calendar {
+    flex: 9;
+    width: 100%;
+    table-layout: fixed; /*equal widths*/
+    border-collapse: collapse;
+}
+tr {
+    height: 100px; /* equal heights */
+}
+th {
+    font-size: 30px;
+    color: black;
+    font-family: "New", serif;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    /* default style is center */
+}
+td {
+    font-size: 50px;
+    color: black;
+    font-family: "New", serif;
+    font-weight: bold;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+    text-align: center;
+}
+.sunday {
+    color: white;
+}
+.divider {
+    color: #FFBDC6; 
+}
